@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/tv_category_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@null"
+        android:tint="@color/black"
+        tools:srcCompat="@drawable/ic_vector_category_all" />
+
+    <TextView
+        android:id="@+id/tv_category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="@string/default_category_all" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/ll_choose_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/selector_gank_category"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/ic_vector_category_all" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="@string/choose_category"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

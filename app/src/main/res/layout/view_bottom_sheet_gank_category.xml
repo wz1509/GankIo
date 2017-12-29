@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/shape_divider"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <TextView
+        style="@style/BottomSheetCategory"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:enabled="false"
+        android:text="@string/choose_category"
+        android:textColor="@color/grey"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_all"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_all"
+        android:tag="all"
+        android:text="@string/default_category_all" />
+
+    <TextView
+        android:id="@+id/tv_app"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_app"
+        android:tag="App"
+        android:text="@string/category_app" />
+
+    <TextView
+        android:id="@+id/tv_android"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_android"
+        android:tag="Android"
+        android:text="@string/category_android" />
+
+    <TextView
+        android:id="@+id/tv_ios"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_ios"
+        android:tag="iOS"
+        android:text="@string/category_ios" />
+
+    <TextView
+        android:id="@+id/tv_web"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_web"
+        android:tag="前端"
+        android:text="@string/category_web" />
+
+    <TextView
+        android:id="@+id/tv_video"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_video"
+        android:tag="休息视频"
+        android:text="@string/category_video" />
+
+    <TextView
+        android:id="@+id/tv_recommend"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_recommend"
+        android:tag="瞎推荐"
+        android:text="@string/category_recommend" />
+
+    <TextView
+        android:id="@+id/tv_expand"
+        style="@style/BottomSheetCategory"
+        android:drawableStart="@drawable/ic_vector_category_expand"
+        android:tag="拓展资源"
+        android:text="@string/category_expand" />
+
+</LinearLayout>

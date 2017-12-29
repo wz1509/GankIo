@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">干货</string>
+
+    <!-- 共享过度动画 -->
+    <string name="transition_photos">transition_animation_news_photos</string>
+
+    <string name="navigation_gankio">干货</string>
+    <string name="navigation_xd">闲读</string>
+    <string name="navigation_personal">个人</string>
+
+    <string name="choose_category">选择分类</string>
+    <string name="default_category_all">全部</string>
+    <string name="category_app">App</string>
+    <string name="category_android">Android</string>
+    <string name="category_ios">iOS</string>
+    <string name="category_web">前端</string>
+    <string name="category_video">休息视频</string>
+    <string name="category_welfare">福利</string>
+    <string name="category_recommend">瞎推荐</string>
+    <string name="category_expand">拓展资源</string>
+
+    <string name="title_share">分享</string>
+    <string name="title_save">保存</string>
+    <string name="title_search">搜索</string>
+    <string name="search_hint">搜索关键字</string>
+
+</resources>

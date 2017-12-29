@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.wangzheng.gankio.ui.activity.MainActivity">
+
+    <include layout="@layout/activity_base_toolbar" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_anchor="@id/frame_layout"
+        app:layout_anchorGravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:layout_behavior="me.wangzheng.gankio.util.BottomNavigationBehavior"
+        app:menu="@menu/navigation" />
+
+</android.support.design.widget.CoordinatorLayout>

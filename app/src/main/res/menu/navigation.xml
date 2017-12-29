@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_gankio"
+        android:icon="@drawable/ic_vector_gankio"
+        android:title="@string/navigation_gankio" />
+
+    <item
+        android:id="@+id/navigation_xd"
+        android:icon="@drawable/ic_vector_xd"
+        android:title="@string/navigation_xd" />
+
+    <item
+        android:id="@+id/navigation_personal"
+        android:icon="@drawable/ic_vector_personal"
+        android:title="@string/navigation_personal" />
+
+</menu>
