@@ -340,8 +340,7 @@ public abstract class BaseMultiRecyclerViewAdapter<T> extends RecyclerView.Adapt
         }
     }
 
-    public void setLoadMoreListener(@NonNull RecyclerView recyclerView,
-                                    @NonNull final OnRecyclerViewLoadMoreListener listener) {
+    public void setLoadMoreListener(@NonNull RecyclerView recyclerView, @NonNull final OnRecyclerViewLoadMoreListener listener) {
         isLoadMore = true;
         this.mRecyclerView = recyclerView;
         recyclerView.addOnScrollListener(new RecyclerViewScrollListener() {
