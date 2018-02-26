@@ -31,10 +31,9 @@ import me.wangzheng.gankio.presenter.CategoryPresenter;
 import me.wangzheng.gankio.ui.activity.PhotoDetailsActivity;
 import me.wangzheng.gankio.ui.activity.WebDetailActivity;
 import me.wangzheng.gankio.ui.adapter.CategoryAdapter;
+import me.wangzheng.gankio.util.callback.EmptyCallback;
 import me.wangzheng.gankio.util.callback.ErrorCallback;
 import me.wangzheng.gankio.util.callback.LoadingCallback;
-import me.wangzheng.library.adapter.listener.OnItemChildClickListener;
-import me.wangzheng.library.adapter.listener.OnRecyclerViewLoadMoreListener;
 
 /**
  * Created by wangzheng on 2017/12/18.
@@ -138,7 +137,7 @@ public class CategoryFragment extends BaseLazyFragment implements CategoryContra
         });
 
         mAdapter.addHeaderView(mHeaderView);
-        mAdapter.setLoadMoreListener(mRecyclerView, () -> mPresenter.getGankIoList(false, mCategory));
+        mAdapter.setOnLoadMoreListener(() -> mPresenter.getGankIoList(false, mCategory), mRecyclerView);
     }
 
     @Override
@@ -156,10 +155,18 @@ public class CategoryFragment extends BaseLazyFragment implements CategoryContra
     @Override
     public void onResultGankIoList(boolean isRefresh, List<GankEntity> list) {
         closeSwipeRefreshLayout();
-        if (isRefresh) {
-            mAdapter.setNewData(list);
+        if (list == null || list.isEmpty()) {
+            if (isRefresh) {
+                loadService.showCallback(EmptyCallback.class);
+            } else {
+                mAdapter.loadMoreEnd();
+            }
         } else {
-            mAdapter.addData(list);
+            if (isRefresh) {
+                mAdapter.setNewData(list);
+            } else {
+                mAdapter.addData(list);
+            }
         }
         loadService.showCallback(SuccessCallback.class);
     }
@@ -171,6 +178,7 @@ public class CategoryFragment extends BaseLazyFragment implements CategoryContra
             loadService.showCallback(ErrorCallback.class);
         } else {
             Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+            mAdapter.loadMoreFail();
         }
     }
 

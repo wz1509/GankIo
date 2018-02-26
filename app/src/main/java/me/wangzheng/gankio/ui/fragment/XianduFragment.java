@@ -25,6 +25,7 @@ import me.wangzheng.gankio.model.XianduEntity;
 import me.wangzheng.gankio.presenter.XianduPresenter;
 import me.wangzheng.gankio.ui.activity.WebDetailActivity;
 import me.wangzheng.gankio.ui.adapter.XianduAdapter;
+import me.wangzheng.gankio.util.callback.EmptyCallback;
 import me.wangzheng.gankio.util.callback.ErrorCallback;
 import me.wangzheng.gankio.util.callback.LoadingCallback;
 
@@ -79,7 +80,7 @@ public class XianduFragment extends BaseLazyFragment implements XianduContract.V
         mAdapter = new XianduAdapter(getContext());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setLoadMoreListener(mRecyclerView, () -> mPresenter.getXianduList(false, getUrl()));
+        mAdapter.setOnLoadMoreListener(() -> mPresenter.getXianduList(false, getUrl()), mRecyclerView);
         mAdapter.setOnItemClickListener((view, data, position) -> {
             startActivity(WebDetailActivity.newInstant(getActivity(), data));
         });
@@ -99,10 +100,18 @@ public class XianduFragment extends BaseLazyFragment implements XianduContract.V
     @Override
     public void onResultXianduList(boolean isRefresh, List<XianduEntity> list) {
         closeSwipeRefreshLayout();
-        if (isRefresh) {
-            mAdapter.setNewData(list);
+        if (list == null || list.isEmpty()) {
+            if (isRefresh) {
+                loadService.showCallback(EmptyCallback.class);
+            } else {
+                mAdapter.loadMoreEnd();
+            }
         } else {
-            mAdapter.addData(list);
+            if (isRefresh) {
+                mAdapter.setNewData(list);
+            } else {
+                mAdapter.addData(list);
+            }
         }
         loadService.showCallback(SuccessCallback.class);
     }
@@ -115,6 +124,7 @@ public class XianduFragment extends BaseLazyFragment implements XianduContract.V
             loadService.showCallback(ErrorCallback.class);
         } else {
             Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+            mAdapter.loadMoreFail();
         }
     }
 

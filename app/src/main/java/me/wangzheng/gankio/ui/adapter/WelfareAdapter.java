@@ -5,11 +5,11 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.wazing.baserecyclerviewadapter.BaseRecyclerViewAdapter;
+import com.wazing.baserecyclerviewadapter.BaseViewHolder;
 
 import me.wangzheng.gankio.R;
 import me.wangzheng.gankio.model.GankEntity;
-import me.wangzheng.library.adapter.BaseRecyclerViewAdapter;
-import me.wangzheng.library.adapter.BaseViewHolder;
 
 public class WelfareAdapter extends BaseRecyclerViewAdapter<GankEntity> {
 

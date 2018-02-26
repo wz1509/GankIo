@@ -87,6 +87,7 @@ public class TodayFragment extends BaseLazyFragment implements GankIoContract.Vi
         mAdapter = new TodayAdapter(getActivity());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOpenLoadMore(false);
         mAdapter.setOnItemClickListener((view, item, position) -> {
             if ("福利".equals(item.getType())) {
                 final ImageView imageView = (ImageView) view.findViewById(R.id.item_gank_image);

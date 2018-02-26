@@ -29,36 +29,47 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$suppor_version"
     implementation "com.android.support:cardview-v7:$suppor_version"
     implementation "com.android.support:design:$suppor_version"
+
     //    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation "com.kingja.loadsir:loadsir:$loadsir_version"
+
     // retrofit 2
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
     // RxJava 2
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
     // RxLifecycle
     implementation "com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle_version"
     implementation "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle_version"
+
     // okhttp 3
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
     // 解析JSON
     implementation "com.google.code.gson:gson:$gons_version"
+
     // dagger2
     implementation "com.google.dagger:dagger:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
     // PhotoView
     implementation "com.github.chrisbanes:PhotoView:$photo_view_version"
+
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
+
     // jsoup抓取数据
     implementation "org.jsoup:jsoup:$jsoup_version"
+
     // EventBus
     implementation "org.greenrobot:eventbus:$eventbus_version"
-    implementation project(':recyclerviewadapterlibrary')
+    implementation project(':baserecyclerviewadapter')
 }

@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GankIo.iml" filepath="$PROJECT_DIR$/GankIo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recyclerviewadapterlibrary/recyclerviewadapterlibrary.iml" filepath="$PROJECT_DIR$/recyclerviewadapterlibrary/recyclerviewadapterlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baserecyclerviewadapter/baserecyclerviewadapter.iml" filepath="$PROJECT_DIR$/baserecyclerviewadapter/baserecyclerviewadapter.iml" />
     </modules>
   </component>
 </project>

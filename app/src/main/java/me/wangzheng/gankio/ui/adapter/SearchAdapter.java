@@ -3,11 +3,12 @@ package me.wangzheng.gankio.ui.adapter;
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 
+import com.wazing.baserecyclerviewadapter.BaseRecyclerViewAdapter;
+import com.wazing.baserecyclerviewadapter.BaseViewHolder;
+
 import me.wangzheng.gankio.R;
 import me.wangzheng.gankio.model.GankEntity;
 import me.wangzheng.gankio.util.GlideUtils;
-import me.wangzheng.library.adapter.BaseRecyclerViewAdapter;
-import me.wangzheng.library.adapter.BaseViewHolder;
 
 public class SearchAdapter extends BaseRecyclerViewAdapter<GankEntity> {
 

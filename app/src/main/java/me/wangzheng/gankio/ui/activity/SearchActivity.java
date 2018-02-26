@@ -89,6 +89,7 @@ public class SearchActivity extends BaseCompatActivity implements SearchContract
         mAdapter = new SearchAdapter(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOpenLoadMore(false);
         mAdapter.setOnItemClickListener((view, data, position) -> {
             startActivity(WebDetailActivity.newInstant(this, data));
         });

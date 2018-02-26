@@ -2,9 +2,10 @@ package me.wangzheng.gankio.ui.adapter;
 
 import android.content.Context;
 
+import com.wazing.baserecyclerviewadapter.BaseRecyclerViewAdapter;
+import com.wazing.baserecyclerviewadapter.BaseViewHolder;
+
 import me.wangzheng.gankio.R;
-import me.wangzheng.library.adapter.BaseRecyclerViewAdapter;
-import me.wangzheng.library.adapter.BaseViewHolder;
 
 public class BottomSheetAdapter extends BaseRecyclerViewAdapter<String> {
 

@@ -2,9 +2,7 @@ package me.wangzheng.gankio.ui.fragment;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,9 +26,9 @@ import me.wangzheng.gankio.model.GankEntity;
 import me.wangzheng.gankio.presenter.WelfarePresenter;
 import me.wangzheng.gankio.ui.activity.PhotoDetailsActivity;
 import me.wangzheng.gankio.ui.adapter.WelfareAdapter;
+import me.wangzheng.gankio.util.callback.EmptyCallback;
 import me.wangzheng.gankio.util.callback.ErrorCallback;
 import me.wangzheng.gankio.util.callback.LoadingCallback;
-import me.wangzheng.library.adapter.listener.OnRecyclerViewLoadMoreListener;
 
 public class WelfareFragment extends BaseLazyFragment implements WelfareContract.View {
 
@@ -69,7 +67,7 @@ public class WelfareFragment extends BaseLazyFragment implements WelfareContract
         mAdapter = new WelfareAdapter(getActivity());
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setLoadMoreListener(mRecyclerView, () -> mPresenter.getGankIoList(false));
+        mAdapter.setOnLoadMoreListener(() -> mPresenter.getGankIoList(false), mRecyclerView);
         mAdapter.setOnItemClickListener((view, data, position) -> {
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_photo_image);
             final Intent intent = PhotoDetailsActivity.newInstant(getActivity(), data);
@@ -93,10 +91,18 @@ public class WelfareFragment extends BaseLazyFragment implements WelfareContract
     @Override
     public void onResultGankIoList(boolean isRefresh, List<GankEntity> list) {
         closeSwipeRefreshLayout();
-        if (isRefresh) {
-            mAdapter.setNewData(list);
+        if (list == null || list.isEmpty()) {
+            if (isRefresh) {
+                loadService.showCallback(EmptyCallback.class);
+            } else {
+                mAdapter.loadMoreEnd();
+            }
         } else {
-            mAdapter.addData(list);
+            if (isRefresh) {
+                mAdapter.setNewData(list);
+            } else {
+                mAdapter.addData(list);
+            }
         }
         loadService.showCallback(SuccessCallback.class);
     }
@@ -108,6 +114,7 @@ public class WelfareFragment extends BaseLazyFragment implements WelfareContract
             loadService.showCallback(ErrorCallback.class);
         } else {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+            mAdapter.loadMoreFail();
         }
     }
 

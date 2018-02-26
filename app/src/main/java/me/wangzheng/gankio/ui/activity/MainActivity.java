@@ -41,6 +41,33 @@ public class MainActivity extends BaseCompatActivity {
 
         setSupportActionBar(mToolbar);
         showFragment(0);
+
+//        Log.d("wz", "time start");
+//
+//        final int count = 5;
+//        Observable.interval(0, 1, TimeUnit.SECONDS)
+//                .take(count + 1)
+//                .map(aLong -> count - aLong)
+//                .compose(bindToLifecycle())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Consumer<Long>() {
+//                    @Override
+//                    public void accept(Long aLong) throws Exception {
+//                        Log.d("wz", "onNext: aLong = " + aLong);
+//                        if (aLong == 0) {
+//                            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                            builder.setTitle("title");
+//                            builder.setMessage("test");
+//                            final AlertDialog alertDialog = builder.create();
+//                            alertDialog.show();
+//                        }
+//                    }
+//                }, new Consumer<Throwable>() {
+//                    @Override
+//                    public void accept(Throwable throwable) throws Exception {
+//                        Log.e("wz", "accept: " + throwable.getMessage(), throwable);
+//                    }
+//                });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

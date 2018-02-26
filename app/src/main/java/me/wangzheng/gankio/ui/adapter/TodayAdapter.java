@@ -2,16 +2,17 @@ package me.wangzheng.gankio.ui.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.wazing.baserecyclerviewadapter.BaseMultiRecyclerViewAdapter;
+import com.wazing.baserecyclerviewadapter.BaseViewHolder;
 
 import me.wangzheng.gankio.R;
 import me.wangzheng.gankio.model.GankEntity;
-import me.wangzheng.library.adapter.BaseMultiRecyclerViewAdapter;
-import me.wangzheng.library.adapter.BaseViewHolder;
 
 public class TodayAdapter extends BaseMultiRecyclerViewAdapter<GankEntity> {
 
@@ -48,6 +49,7 @@ public class TodayAdapter extends BaseMultiRecyclerViewAdapter<GankEntity> {
 
     @Override
     protected void onBindBaseViewHolder(BaseViewHolder holder, GankEntity item, int position) {
+        Log.d("wazing", "onBindBaseViewHolder: " + item.toString());
         switch (holder.getItemViewType()) {
             case CATEGORY:
                 holder.setText(R.id.item_category, item.getCategory());

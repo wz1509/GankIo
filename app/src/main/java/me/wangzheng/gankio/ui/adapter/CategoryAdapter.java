@@ -1,32 +1,24 @@
 package me.wangzheng.gankio.ui.adapter;
 
 import android.content.Context;
-import android.nfc.Tag;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.wazing.baserecyclerviewadapter.BaseMultiRecyclerViewAdapter;
+import com.wazing.baserecyclerviewadapter.BaseViewHolder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import me.wangzheng.gankio.R;
 import me.wangzheng.gankio.model.GankEntity;
 import me.wangzheng.gankio.util.GlideUtils;
-import me.wangzheng.library.adapter.BaseMultiRecyclerViewAdapter;
-import me.wangzheng.library.adapter.BaseViewHolder;
 
 public class CategoryAdapter extends BaseMultiRecyclerViewAdapter<GankEntity> {
 
